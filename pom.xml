@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <!-- Toujours utiliser 4.0.0 pour maven 2.x -->
+    <modelVersion>4.0.0</modelVersion>
+
+    <!-- groupId, artifactId et version actuelle -->
+    <groupId>fr.imag</groupId>
+    <artifactId>jCalc</artifactId>
+    <version>1.0</version>
+
+    <!-- la façon dont sera packagée l'application -->
+    <packaging>jar</packaging>
+
+    <!-- un nom pour le projet -->
+    <name>Calculatrice java</name>
+
+    <!-- l'adresse du site qui présente cette application -->
+    <url>http://www.imag.fr</url>
+
+    <developers>
+        <developer>
+            <name>Olivier GODARD</name>
+            <id>godardo</id>
+            <email>olivier.godard@ensimag.imag.fr</email>
+        </developer>
+    </developers>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+
+    <build>
+        <resources>
+            <!-- regular resource processsing for everything except logback.xml -->
+            <resource>
+                <directory>src/main/resources</directory>
+            </resource>
+        </resources>
+        <plugins>
+            <plugin>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <configuration>
+                    <descriptorRefs>
+                        <descriptorRef>jar-with-dependencies</descriptorRef>
+                    </descriptorRefs>
+                    <archive>
+                        <manifest>
+                            <mainClass>calc.Calc</mainClass>
+                        </manifest>
+                    </archive>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>
