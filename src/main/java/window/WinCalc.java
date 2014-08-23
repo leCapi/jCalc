@@ -252,7 +252,6 @@ public class WinCalc extends JFrame implements ActionListener, KeyListener {
 		this.isInfinity = isInfinity;
 	}
 
-	@Override
 	public void actionPerformed(ActionEvent e) {
 		JButton but = (JButton) e.getSource();
 
@@ -323,7 +322,6 @@ public class WinCalc extends JFrame implements ActionListener, KeyListener {
 		return false;
 	}
 
-	@Override
 	public void keyTyped(KeyEvent e) {
 		if (click(button0, e.getKeyChar()))
 			return;
@@ -381,11 +379,9 @@ public class WinCalc extends JFrame implements ActionListener, KeyListener {
 		}
 	}
 
-	@Override
 	public void keyPressed(KeyEvent e) {
 	}
 
-	@Override
 	public void keyReleased(KeyEvent e) {
 	}
 }

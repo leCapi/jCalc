@@ -71,7 +71,6 @@ public class Computer implements ActionListener {
 		}
 	}
 
-	@Override
 	public void actionPerformed(ActionEvent e) {
 		JButton but = (JButton) e.getSource();
 		if (but.getText().equals("=")) {
