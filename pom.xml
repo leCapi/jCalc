@@ -24,7 +24,7 @@
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
-	
+
 	<build>
 		<resources>
 			<!-- regular resource processsing for everything except logback.xml -->
@@ -32,15 +32,26 @@
 				<directory>src/main/resources</directory>
 			</resource>
 		</resources>
-		<defaultGoal>exec:java</defaultGoal>
+		<defaultGoal>exec:exec</defaultGoal>
 		<plugins>
+<!-- 			<plugin> -->
+<!-- 				<groupId>org.codehaus.mojo</groupId> -->
+<!-- 				<artifactId>exec-maven-plugin</artifactId> -->
+<!-- 				<version>1.2.1</version> -->
+<!-- 				<configuration> -->
+<!-- 					<executable>mvn</executable> -->
+<!-- 					<arguments> -->
+<!-- 						<argument>compile</argument> -->
+<!-- 						<argument>exec:java</argument> -->
+<!-- 					</arguments> -->
+<!-- 				</configuration> -->
+<!-- 			</plugin> -->
 			<plugin>
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>exec-maven-plugin</artifactId>
 				<version>1.0.1</version>
 				<executions>
 					<execution>
-					<phase>test</phase>
 						<goals>
 							<goal>java</goal>
 						</goals>
@@ -49,16 +60,30 @@
 				<configuration>
 					<keepAlive>true</keepAlive>
 					<mainClass>calc.Calc</mainClass>
+					<executable>mvn</executable>
+					<arguments>
+						<argument>compile</argument>
+						<argument>exec:java</argument>
+					</arguments>
 				</configuration>
 			</plugin>
 			<plugin>
-				<artifactId>maven-assembly-plugin</artifactId>
+				<artifactId>maven-jar-plugin</artifactId>
+				<version>2.4</version>
+				<executions>
+					<execution>
+						<id>default-jar</id>
+						<phase>package</phase>
+						<goals>
+							<goal>jar</goal>
+						</goals>
+					</execution>
+				</executions>
 				<configuration>
-					<descriptorRefs>
-						<descriptorRef>jar-with-dependencies</descriptorRef>
-					</descriptorRefs>
 					<archive>
 						<manifest>
+							<addDefaultImplementationEntries>false</addDefaultImplementationEntries>
+							<addClasspath>true</addClasspath>
 							<mainClass>calc.Calc</mainClass>
 						</manifest>
 					</archive>
