@@ -254,7 +254,6 @@ public class WinCalc extends JFrame implements ActionListener, KeyListener {
 
 	public void actionPerformed(ActionEvent e) {
 		JButton but = (JButton) e.getSource();
-
 		if (displayableButton("0", but)) {
 			return;
 		}
@@ -298,9 +297,6 @@ public class WinCalc extends JFrame implements ActionListener, KeyListener {
 			return;
 		}
 		if (displayableButton("\u00D7", but)) {
-			return;
-		}
-		if (displayableButton("9", but)) {
 			return;
 		}
 		if (displayableButton("/", but)) {
